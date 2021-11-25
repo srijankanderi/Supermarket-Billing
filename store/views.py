@@ -28,9 +28,13 @@ class ProductAPI(APIView):
 
     def get(self, request, format=None):
 
-        query_params = ['category', 'subcategory', 'name']
-        print(list(request.query_params.keys()))
-        if list(request.query_params.keys()) not in query_params:
+        allowed_query_params = ['category', 'subcategory', 'name']
+        allowed_query_param_set = set(allowed_query_params)
+
+        request_query_params = request.query_params.keys()
+        request_query_params_set = set(request_query_params)
+
+        if not (request_query_params_set.issubset(allowed_query_param_set)):
             return Response( {"Not allowed"}, status=status.HTTP_403_FORBIDDEN)
 
         category = request.query_params.get('category', None)
@@ -82,5 +86,3 @@ class ProductAPI(APIView):
             
             serialized_data = serializer_class(queryset, many=True)
             return Response(serialized_data.data)
-
-        

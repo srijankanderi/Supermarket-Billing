@@ -21,3 +21,4 @@ class ItemProductSerializer(serializers.ModelSerializer):
     def get_subcategory(self, ItemInstance):
         item_subcategory_name = ItemInstance.subcategory.name
         return item_subcategory_name
+        
