@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Category(models.Model):
     name = models.CharField(max_length=200)
 
@@ -13,6 +14,7 @@ class Subcategory(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Item(models.Model):   
     name = models.CharField(max_length=200)
