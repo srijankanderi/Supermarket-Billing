@@ -48,7 +48,6 @@ class ProductAPI(APIView):
             serializer_class = ItemProductSerializer
             try:
                 queryset = Item.objects.get(name = name)
-                print("i am executed")
             except:
                 return Response( {"Item does not exist"}, status=status.HTTP_400_BAD_REQUEST)
 
