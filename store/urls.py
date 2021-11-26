@@ -3,5 +3,5 @@ from django.urls import path
 from .views import ProductAPI
 
 urlpatterns = [
-	url(r'items/$', ProductAPI.as_view()),
+	url(r'items/$', ProductAPI.as_view(), name="productList"),
 ]

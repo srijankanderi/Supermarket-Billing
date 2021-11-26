@@ -14,6 +14,7 @@ from .models import Category, Subcategory, Item
 from .serializers import ItemProductSerializer
 
 
+
 class ProductAPI(APIView):
     """
     returns list of
@@ -23,7 +24,8 @@ class ProductAPI(APIView):
     amount:int}
 
     exception:
-    returns 400 status
+    returns 403 status for invalid params
+
     """
 
     def get(self, request, format=None):
@@ -37,6 +39,7 @@ class ProductAPI(APIView):
         if not (request_query_params_set.issubset(allowed_query_param_set)):
             return Response( {"Not allowed"}, status=status.HTTP_403_FORBIDDEN)
 
+
         category = request.query_params.get('category', None)
         subcategory = request.query_params.get('subcategory', None)
         name = request.query_params.get('name', None)
@@ -49,7 +52,7 @@ class ProductAPI(APIView):
             except:
                 return Response( {"Item does not exist"}, status=status.HTTP_400_BAD_REQUEST)
 
-            serialized_data = serializer_class(queryset, many=True)
+            serialized_data = serializer_class(queryset)
             return Response(serialized_data.data)
 
 
