@@ -15,4 +15,7 @@ sample response:
     "category": "Food"
 }
 
+sample categories for testing : [Apparel, Electronics, Food, Toys, Cosmetics]
+sample subcategories for testing: [Drinks, Mice, Keyboards, Phones]
+
 no pagination/no auth.
