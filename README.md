@@ -8,12 +8,15 @@ endpoint(s):
 allowed_query_params = ['category', 'subcategory', 'name']
 sample response:
 
+
+
 {
     "name": "Ringfisher",
     "amount": 600,
     "subcategory": "Drinks",
     "category": "Food"
 }
+
 
 sample categories for testing : [Apparel, Electronics, Food, Toys, Cosmetics]
 sample subcategories for testing: [Drinks, Mice, Keyboards, Phones]
